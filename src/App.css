@@ -15,7 +15,6 @@
   --kose: 8px;
 }
 
-/* Sıfırlama */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -29,10 +28,10 @@ body {
   line-height: 1.5;
 }
 
-/* Ana Konteyner: Bilgisayarda genişler, mobilde sınırlanır */
+
 .app-container, body > div {
   width: 100%;
-  max-width: 1100px; /* Bilgisayarda masaüstü genişliği */
+  max-width: 1100px; 
   margin: 0 auto;
   min-height: 100vh;
   background-color: var(--renk-beyaz);
@@ -41,7 +40,7 @@ body {
   flex-direction: column;
 }
 
-/* Header (Üst Alan) */
+
 .site-baslik, header {
   background-color: var(--renk-ana);
   color: var(--renk-beyaz);
@@ -60,7 +59,7 @@ body {
   font-size: 0.9rem;
 }
 
-/* Navigation (Üst Menü) */
+
 nav.nav-container, nav {
   background-color: var(--renk-ana);
   padding: 0.75rem 2rem 1.25rem 2rem;
@@ -69,7 +68,7 @@ nav.nav-container, nav {
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Menü Butonları */
+
 .nav-btn, nav a {
   background-color: rgba(255, 255, 255, 0.2);
   color: var(--renk-beyaz);
@@ -88,14 +87,13 @@ nav.nav-container, nav {
   background-color: rgba(255, 255, 255, 0.3);
 }
 
-/* Aktif Buton */
+
 .nav-btn.active, nav a.active {
   background-color: var(--renk-beyaz);
   color: var(--renk-ana);
   font-weight: 700;
 }
 
-/* Ana İçerik Alanı */
 main {
   padding: 2rem;
   flex: 1;
@@ -107,14 +105,14 @@ main h2 {
   margin-bottom: 1.25rem;
 }
 
-/* Etkinlik Listesi: Bilgisayarda Grid (Yan Yana), Mobilde Tek Sütun */
+
 .event-list {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 1.25rem;
 }
 
-/* Etkinlik Kartı */
+
 .event-card {
   background: var(--renk-beyaz);
   border: 1px solid var(--renk-kenarlik);
@@ -200,7 +198,7 @@ main h2 {
   outline: 2px solid var(--renk-ana);
 }
 
-/* Alt Bilgi */
+
 footer {
   background-color: var(--renk-ana);
   color: var(--renk-beyaz);
@@ -210,9 +208,7 @@ footer {
   margin-top: auto;
 }
 
-/* =========================================================
-   MOBİL EKRANLAR İÇİN ÖZEL UYARLAMALAR (max-width: 600px)
-   ========================================================= */
+
 @media (max-width: 600px) {
   .site-baslik, header {
     padding: 1rem 1rem 0.5rem 1rem;
@@ -236,8 +232,76 @@ footer {
     padding: 1rem;
   }
 
-  /* Mobilde kartları tek sütun yap */
+
   .event-list {
     grid-template-columns: 1fr;
   }
+}
+.event-form {
+  background-color: var(--renk-beyaz);
+  border: 1px solid var(--renk-kenarlik);
+  border-radius: var(--kose);
+  padding: 1.5rem;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.form-aciklama {
+  font-size: 0.85rem;
+  color: var(--renk-gri);
+  margin-bottom: 0.5rem;
+  font-style: italic;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--renk-yazi);
+  margin-bottom: 0.25rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 0.6rem;
+  border: 1px solid var(--renk-kenarlik);
+  border-radius: var(--kose);
+  font-size: 0.9rem;
+  font-family: var(--font);
+  background-color: var(--renk-beyaz);
+  color: var(--renk-yazi);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: 2px solid var(--renk-ana);
+  border-color: transparent;
+}
+
+.submit-btn {
+  background-color: var(--renk-ana);
+  color: var(--renk-beyaz);
+  border: none;
+  padding: 0.75rem 1.25rem;
+  border-radius: var(--kose);
+  cursor: pointer;
+  font-weight: 600;
+  font-family: var(--font);
+  font-size: 0.95rem;
+  transition: opacity 0.2s ease;
+  margin-top: 0.5rem;
+  align-self: flex-start;
+}
+
+.submit-btn:hover {
+  opacity: 0.9;
 }
