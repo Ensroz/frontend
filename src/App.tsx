@@ -18,7 +18,7 @@ function App() {
 
   const go = (newPage: PageName, id: string | null = null) => {
     setPage(newPage);
-    if (id) setSelectedId(id);
+    if (id !== undefined) setSelectedId(id);
     window.scrollTo(0, 0);
   };
 
@@ -28,10 +28,20 @@ function App() {
     e.title.toLowerCase().includes(searchText.toLowerCase())
   );
 
+ 
+  const getHeaderTitle = () => {
+    if (page === "home") return "Kampüs Etkinlikleri";
+    if (page === "events") return "Tüm Etkinlikler";
+    if (page === "detail" && selectedEvent) return selectedEvent.title;
+    if (page === "add") return "Yeni Etkinlik Ekle";
+    if (page === "update") return "Etkinliği Güncelle";
+    return "Kampüs Etkinlikleri";
+  };
+
   return (
     <div className="app-container">
       <Header 
-        title="Kampüs Etkinlikleri" 
+        title={getHeaderTitle()} 
         text="Fakültemizde seminer, atölye ve söyleşileri tek yerden takip edin." 
       />
       <Navigation current={page} onNavigate={(p) => go(p)} />
@@ -69,21 +79,21 @@ function App() {
             onEdit={(id) => go("update", id)} 
           />
         )}
-
-      {(page === "add" || page === "update") && (
-  <section>
-    <h2>{page === "add" ? "Etkinlik Ekle" : "Etkinlik Güncelle"}</h2>
-    <EventForm 
-      onSubmit={() => {
-   
-        alert("Etkinlik bilgileri kaydedildi!");
-      }} 
-    />
-  </section>
-)}
+  
+  {(page === "add" || page === "update") && (
+          <section>
+            <h2>{page === "add" ? "Etkinlik Ekle" : "Etkinlik Güncelle"}</h2>
+            <EventForm 
+              onSubmit={() => {
+                alert("Etkinlik bilgileri kaydedildi!");
+                go("events"); 
+              }} 
+            />
+          </section>
+        )}
       </main>
-
-          <Footer />
+ 
+     <Footer />
     </div>
   );
 }
