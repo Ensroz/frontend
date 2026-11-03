@@ -1,1 +1,1 @@
-https://frontend-ensr-oz.vercel.app/
+https://ensarozturk-frontend.vercel.app/
