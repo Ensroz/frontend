@@ -36,7 +36,7 @@ backend/
 🚀 Kurulum ve ÇalıştırmaUygulamayı yerel ortamınızda çalıştırmak için aşağıdaki adımları takip edin:1. Backend Klasörüne GeçinBashcd backend
 2. Bağımlılıkları YükleyinBashnpm install
 3. Çevre Değişkenlerini Ayarlayın.env.example dosyasının bir kopyasını oluşturarak .env ismiyle kaydedin ve gerekli port ayarlarını düzenleyin[cite: 1]:Kod snippet'iPORT=3000
-4. Sunucuyu BaşlatınBash# Geliştirme (Development) modunda çalıştırma:
+4. Sunucuyu Başlatın:
 npm run dev
 📌 API Uç Noktaları (Endpoints)Etkinlik işlemleri için sunulan temel API rotaları:
 GET /api/events — Tüm etkinliklerin listesini getirir[cite: 1]
