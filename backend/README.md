@@ -1,48 +1,62 @@
-# 🎓 Campus Events Backend API
+Markdown
+# Kampüs Etkinlikleri - Backend (Express REST API)
 
-Bu dizin, Kampüs Etkinlikleri uygulamasının backend (arka yüz) servislerini içermektedir. Node.js ve Express.js kullanılarak geliştirilmiş RESTful bir API yapısına sahiptir.
+Bu proje, "Kampüs Etkinlikleri" frontend uygulamasının yanında çalışan, etkinlikleri JSON formatında sunan Node.js ve Express tabanlı bir REST API sunucusudur[cite: 1].
 
----
+## ⚙️ Çalıştırma Komutları
 
-## 🛠️ Teknolojiler ve Bağımlılıklar
+Backend klasörüne gidip bağımlılıkları yükledikten sonra geliştirme modunu başlatabilirsiniz[cite: 2]:
 
-Projede kullanılan temel teknoloji ve bileşenler:
-
-* **Çalışma Zamanı (Runtime):** Node.js
-* **Web Framework:** Express.js (`src/app.js`, `src/server.js`)[cite: 1]
-* **Veri Depolama:** Yerel veri modülleri (`src/data/events.js`)[cite: 1]
-* **API Test Aracları:** REST Client / Postman koleksiyonları (`requests/kampus-api.json`)[cite: 1]
-
----
-
-## 📁 Proje Dizin Yapısı
-
-```text
-backend/
-├── requests/
-│   └── kampus-api.json      # API istek ve test şablonları
-├── src/
-│   ├── controllers/
-│   │   └── event-controller.js  # Etkinlik iş mantığı ve yönlendirmeleri
-│   ├── data/
-│   │   └── events.js            # Etkinlik mock/veri katmanı
-│   ├── routes/
-│   │   └── event-routes.js      # Etkinlik API rotaları
-│   ├── app.js                   # Express uygulama yapılandırması
-│   └── server.js                # Sunucu başlatma noktası
-├── .env.example                 # Örnek çevre değişkenleri
-├── .gitignore                   # Git tarafından izlenmeyen dosyalar
-└── package.json                 # Bağımlılıklar ve npm betikleri
-🚀 Kurulum ve ÇalıştırmaUygulamayı yerel ortamınızda çalıştırmak için aşağıdaki adımları takip edin:1. Backend Klasörüne GeçinBashcd backend
-2. Bağımlılıkları YükleyinBashnpm install
-3. Çevre Değişkenlerini Ayarlayın.env.example dosyasının bir kopyasını oluşturarak .env ismiyle kaydedin ve gerekli port ayarlarını düzenleyin[cite: 1]:Kod snippet'iPORT=3000
-4. Sunucuyu Başlatın:
+```bash
+cd backend
+npm install
 npm run dev
-npm start:
-Sunucu varsayılan olarak http://localhost:3000 adresinde çalışmaya başlayacaktır.
-📌 API Uç Noktaları (Endpoints)Etkinlik işlemleri için sunulan temel API rotaları:
-GET /api/events — Tüm etkinliklerin listesini getirir[cite: 1]
-GET /api/events/:id — Belirli bir etkinliğin detayını getirir[cite: 1]
-POST /api/events — Yeni bir etkinlik oluşturur[cite: 1]
-PUT /api/events/:id — Var olan bir etkinliği günceller[cite: 1]
-DELETE /api/events/:id — Bir etkinliği siler[cite: 1]
+📌 Ortam Değişkenleri (.env)
+Sunucunun çalışacağı port bilgisi .env dosyasından okunur:   
+IMG_5074_1153bd.jpg
++ 1
+PORT: 3000 (Örn: PORT=3000)
+🔌 REST Sözleşmesi
+Method	Endpoint	Amaç	Başarılı Yanıt	Hata Yanıtı	Durum
+GET	/health	Sunucu sağlık kontrolü	200 OK	-	Bu sprint
+GET	/events	Etkinlik listesini getirir	200 OK	-	Bu sprint
+GET	/events/:id	Tek bir etkinlik getirir	200 OK	404 Not Found	Bu sprint
+POST	/events	Yeni etkinlik ekler	201 Created	400 Bad Request	Bu sprint
+PATCH	/events/:id	Etkinliği günceller	200 OK	400, 404	Sprint 9
+DELETE	/events/:id	Etkinliği siler	204 No Content	404 Not Found	Sprint 9
+Hata mesajı formatı: {"error": {"message": "Açıklama"}}   
+IMG_5075_1153bd.jpg
++ 1
+
+
+---
+
+### 2. Teslim Öncesi Kontrol Listesi (Checklist)
+
+Fotoğraflardaki kurallara göre yükleme yapmadan önce şu adımlardan emin olmalısın:
+
+1. **Repo Yapısı:** 
+   - `frontend/` ve `backend/` klasörleri aynı kök dizinde yer almalı[cite: 1, 8].
+   - `backend/` altında `src/` (app.js, server.js, routes/, controllers/, data/), `.env.example`, `.gitignore`, `package.json` ve `backend/README.md` bulunmalı[cite: 2, 3, 8].
+   - `backend/requests/kampus-api.json` dosyası eklenmiş olmalı[cite: 8].
+2. **GitHub'da Olmaması Gerekenler:** 
+   - `.env` dosyası ve `node_modules` klasörü kesinlikle GitHub'a gönderilmemeli (`.gitignore` içinde olmalı)[cite: 8, 9].
+3. **Özgünlük Kuralları:**
+   - `GET /health` yanıtındaki `student` alanında **öğrencin numaran** yazmalı[cite: 5, 8].
+   - `src/data/events.js` içerisindeki 6 etkinliğin başlık, yer ve açıklamalarını kendin uyarlamalısın (`event-1` ... `event-6` ID'leri kalmalı)[cite: 6, 8].
+4. **Git Geçmişi:**
+   - En az 5 commit olmalı ve adım adım atılmalı (tek seferde tek commit kabul edilmez)[cite: 8].
+
+---
+
+### 3. GitHub'a Gönderim Komutları
+
+Tüm kontrolleri tamamladıktan sonra repo kök dizininde sırasıyla şu komutları çalıştırabilirsin:
+
+```bash
+git add .
+git commit -m "Complete sprint 7 Express REST API"
+git tag sprint-07
+git push
+git push --tags
+
