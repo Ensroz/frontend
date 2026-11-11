@@ -1,5 +1,5 @@
 export const events = [
-  id: "event-1",
+  { id: "event-1",
     title: "Kariyer Günleri 2026",
     category: "Seminer",
     capacity: 100,
