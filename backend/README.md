@@ -38,7 +38,7 @@ backend/
 3. Çevre Değişkenlerini Ayarlayın.env.example dosyasının bir kopyasını oluşturarak .env ismiyle kaydedin ve gerekli port ayarlarını düzenleyin[cite: 1]:Kod snippet'iPORT=3000
 4. Sunucuyu BaşlatınBash# Geliştirme (Development) modunda çalıştırma:
 npm run dev
-
+📌 API Uç Noktaları (Endpoints)Etkinlik işlemleri için sunulan temel API rotaları:   GET /api/events — Tüm etkinliklerin listesini getirir[cite: 1]GET /api/events/:id — Belirli bir etkinliğin detayını getirir[cite: 1]POST /api/events — Yeni bir etkinlik oluşturur[cite: 1]PUT /api/events/:id — Var olan bir etkinliği günceller[cite: 1]DELETE /api/events/:id — Bir etkinliği siler[cite: 1]
 # Standart çalıştırma:
 npm start
-Sunucu varsayılan olarak http://localhost:3000 adresinde çalışmaya başlayacaktır.📌 API Uç Noktaları (Endpoints)Etkinlik işlemleri için sunulan temel API rotaları[cite: 1]:YöntemRotaAçıklamaGET/api/eventsTüm etkinliklerin listesini getirirGET/api/events/:idBelirli bir etkinliğin detayını getirirPOST/api/eventsYeni bir etkinlik oluştururPUT/api/events/:idVar olan bir etkinliği güncellerDELETE/api/events/:idBir etkinliği siler
+Sunucu varsayılan olarak http://localhost:3000 adresinde çalışmaya başlayacaktır.güncellerDELETE/api/events/:idBir etkinliği siler
